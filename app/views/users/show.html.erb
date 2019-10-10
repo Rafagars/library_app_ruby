@@ -9,11 +9,24 @@
     </section>
   </aside>
   <div class="col-md-8">
+    <%= render 'books/form' %>
     <% if @user.books.any? %>
-      <h3>Posts (<%= @user.books.count %>)</h3>
-      <ol class="posts">
-        <%= render @books %>
-      </ol>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        <%= @books.each do |book| %>
+          <tr>
+            <th><%= book.title %></th>
+            <th><%= book.author %></th>
+            <th><%= link_to "Edit", edit_book_path %></th>
+            <th><%= link_to "Delete", book_path(book), method: :delete %></th>
+          </tr>
+        <% end %>
+      </table>
       <%= will_paginate @books %>
     <% end %>
   </div>

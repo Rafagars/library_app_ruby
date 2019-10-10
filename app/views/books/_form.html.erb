@@ -1,0 +1,6 @@
+<%= form_for(:book) do |f| %>
+  <span>Title: <%= f.text_field :title%></span>
+  <span>Author: <%= f.text_field :book %></span>
+  <%= f.hidden_field :user_id %>
+  <span><%= f.submit "Add", class: "btn btn-primary" %></span>
+<% end %>
