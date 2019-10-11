@@ -16,13 +16,11 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-    @book = @user.books.find(params[:user_id])
+    @book = current_user.books.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    @book = @user.books.find(params[:user_id])
+    @book = current_user.books.find(params[:id])
     @book.update(book_params)
 
     flash[:success] = "Book edited"
