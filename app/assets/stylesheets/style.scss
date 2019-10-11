@@ -67,14 +67,19 @@ p{
   a {
     text-decoration: none;
     color: white;
+    background-color: #b29764;
   }
   a:hover{
     background-color: #b29764;
   }
 }
 
-.dropdown-menu{
+.dropdown, .dropdown-menu, .dropdown-toggle{
   background-color: #b29764
+}
+
+.icon-bar{
+  background-color: #eeefc7;
 }
 
 #logo {
