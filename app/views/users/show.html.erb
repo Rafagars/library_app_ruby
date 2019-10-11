@@ -32,8 +32,8 @@
           <th><%= book.title %></th>
           <th><%= book.author %></th>
           <% if @current_user == @user %>
-            <th><%= link_to "Edit", edit_user_book_path(@current_user.id) %></th>
-            <th><%= link_to "", user_book_path(book), method: :delete, class: "fas fa-trash" %></th>
+            <th><%= link_to "Edit", edit_user_book_path(user_id: @current_user.id, id: book.id) %></th>
+            <th><%= link_to "", user_book_path(user_id: @current_user.id, id: book.id), method: :delete, class: "fas fa-trash" %></th>
           <% end %>
         </tr>
       <% end %>

@@ -16,11 +16,13 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = current_user.books.find(params[:id])
+    @user = User.find(params[:user_id])
+    @book = @user.books.find(params[:id])
   end
 
   def update
-    @book = current_user.books.find(params[:id])
+    @user = User.find(params[:user_id])
+    @book = @user.books.find(params[:id])
     @book.update(book_params)
 
     flash[:success] = "Book edited"
@@ -29,8 +31,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @book = @user.books.find(params[:user_id])
+    @user = User.find(params[:user_id])
+    @book = @user.books.find(params[:id])
     @book.destroy
     flash[:success] = "Book deleted"
     redirect_to root_path
