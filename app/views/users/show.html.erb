@@ -10,9 +10,11 @@
   </aside>
   <div class="col-md-8">
     <!--<button id="addBook" class="btn btn-primary center-block"> Add Book </button>-->
-    <div id="bookForm">
-      <%= render 'books/form', provide(:url, user_books_path(@user)) %>
-    </div>
+    <% if logged_in? %>
+      <div id="bookForm">
+        <%= render 'books/form', provide(:url, user_books_path(@user)) %>
+      </div>
+    <% end %>
   </div>
   <div class="col-md-12">
   <% if @user.books.any? %>
@@ -20,15 +22,17 @@
       <tr>
         <th>Title</th>
         <th>Author</th>
-
-        <th>Delete</th>
+        <% if @current_user == @user %>
+          <th>Delete</th>
+        <% end %>
       </tr>
       <% @books.each do |book| %>
         <tr>
           <th><%= book.title %></th>
           <th><%= book.author %></th>
-
-          <th><%= link_to "", user_book_path(book), class: "fas fa-trash" %></th>
+          <% if @current_user == @user %>
+            <th><%= link_to "", user_book_path(book), class: "fas fa-trash" %></th>
+          <% end %>
         </tr>
       <% end %>
     </table>
