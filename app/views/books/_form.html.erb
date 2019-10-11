@@ -1,6 +1,6 @@
-<%= form_for(:book) do |f| %>
+<%= form_for(:book, url: yield(:url)) do |f| %>
   <span>Title: <%= f.text_field :title%></span>
-  <span>Author: <%= f.text_field :book %></span>
+  <span>Author: <%= f.text_field :author %></span>
   <%= f.hidden_field :user_id %>
   <span><%= f.submit "Add", class: "btn btn-primary" %></span>
 <% end %>

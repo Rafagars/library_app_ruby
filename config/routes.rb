@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users
-  resources :books
+  resources :users do
+    resources :books
+  end
 end

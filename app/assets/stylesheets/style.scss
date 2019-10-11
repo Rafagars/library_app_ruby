@@ -226,6 +226,10 @@ input {
   @include box_sizing;
 }
 
+#bookForm{
+  margin-bottom: 20px;
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 767.98px) {
   body{

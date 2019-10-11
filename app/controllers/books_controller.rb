@@ -1,24 +1,29 @@
 class BooksController < ApplicationController
-
-  def index
+  def new
     @book = Book.new
-    @books = Book.paginate(page: params[:page])
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.save
-    flash[:success] = "Book added"
-    redirect_to root_path
+    @user = User.find(params[:user_id])
+    @book = @user.books.build(book_params)
+    if @book.save
+      flash[:success] = "Book added"
+      redirect_to root_path
+    else
+      flash[:danger] = "Error adding your book. Please try again or report the error to us"
+      redirect_to root_path
+    end
   end
 
   def edit
-    @book = Book.find(params[:id])
+    @user = User.find(params[:id])
+    @book = @user.books.find(params[:user_id])
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.update
+    @user = User.find(params[:id])
+    @book = @user.books.find(params[:user_id])
+    @book.update(book_params)
 
     flash[:success] = "Book edited"
 
@@ -26,7 +31,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
+    @user = User.find(params[:id])
+    @book = @user.books.find(params[:user_id])
     @book.destroy
     flash[:success] = "Book deleted"
     redirect_to root_path
@@ -35,6 +41,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :user_id)
+    params.require(:book).permit(:title, :author)
   end
+
 end

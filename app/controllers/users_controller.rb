@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   include UsersHelper
-  include SessionsHelper
 
   def index
     @users = User.paginate(page: params[:page])
