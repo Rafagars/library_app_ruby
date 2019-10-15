@@ -9,6 +9,7 @@
     <li>
       <%= gravatar_for user %>
       <%= link_to user.name, user %>
+      <h5> Books: <%= user.books.count %></h5>
     </li>
   <% end %>
 </ul>
