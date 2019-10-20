@@ -221,6 +221,22 @@ input {
   }
 }
 
+/* User show */
+
+#bookForm{
+  margin-bottom: 20px;
+  clear: both;
+}
+
+#showForm{
+  margin-top: 5%;
+}
+
+#hideForm{
+  float: right;
+}
+
+
 /* miscellaneous */
 
 .debug_dump {
@@ -231,13 +247,21 @@ input {
   @include box_sizing;
 }
 
-#bookForm{
-  margin-bottom: 20px;
-}
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 767.98px) {
   body{
-    margin: 8% auto;
+    margin: 5% auto;
+  }
+  /* header */
+
+  #collapsable-nav{
+    float: right;
+  }
+
+  /* Home page */
+
+  #welcome-img{
+    width: 80%;
   }
 }

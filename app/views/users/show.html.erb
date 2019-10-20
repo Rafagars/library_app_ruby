@@ -10,9 +10,10 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <!--<button id="addBook" class="btn btn-primary center-block"> Add Book </button>-->
+    <button id="showForm" class="btn btn-primary center-block"> Add Book </button>
     <% if logged_in? %>
       <div id="bookForm">
+        <button id="hideForm" class="btn btn-danger">X</button>
         <%= render 'books/form', provide(:url, user_books_path(@user)) %>
       </div>
     <% end %>
@@ -47,3 +48,28 @@
   <% end %>
   </div>
 </div>
+
+<script>
+  /* Script in here because is the only way I could made it works */
+    var i = 0;
+
+    var bookForm = $("#bookForm");
+
+    var hideForm = $("#hideForm");
+
+    hideForm.hide();
+
+    bookForm.hide();
+
+    $('#showForm').on('click', function () {
+        bookForm.show();
+        hideForm.show();
+        $('#showForm').hide();
+    });
+
+    hideForm.on('click', function () {
+        bookForm.hide();
+        hideForm.hide();
+        $('#showForm').show();
+    })
+</script>
