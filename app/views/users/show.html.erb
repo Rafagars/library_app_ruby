@@ -11,9 +11,9 @@
   </aside>
   <div class="col-md-8">
     <button id="showForm" class="btn btn-primary center-block"> Add Book </button>
-    <% if logged_in? %>
+    <button id="hideForm" class="btn btn-danger">X</button>
+    <% if logged_in? && @current_user == @user %>
       <div id="bookForm">
-        <button id="hideForm" class="btn btn-danger">X</button>
         <%= render 'books/form', provide(:url, user_books_path(@user)) %>
       </div>
     <% end %>
@@ -38,7 +38,7 @@
             <td><%= book.author %></td>
             <% if @current_user == @user %>
               <td><%= link_to "", edit_user_book_path(user_id: @current_user.id, id: book.id), class: "fas fa-edit" %></td>
-              <td><%= link_to "", user_book_path(user_id: @current_user.id, id: book.id), method: :delete, class: "fas fa-trash" %></td>
+              <td><%= link_to "", user_book_path(user_id: @current_user.id, id: book.id), method: :delete, class: "fas fa-trash", data: {confirm: "Are you sure?"} %></td>
             <% end %>
           </tr>
         <% end %>
