@@ -308,6 +308,10 @@ input, textarea, select, .uneditable-input {
   color: #666666;
 }
 
+.nav-link{
+  background-color: #f1e4b0;
+  color: #555555;
+}
 
 /* miscellaneous */
 
@@ -340,5 +344,18 @@ input, textarea, select, .uneditable-input {
 
   #welcome-img{
     width: 80%;
+  }
+
+  .register, .login {
+    width: 300px;
+    margin: 50px auto;
+
+    h1 {
+      margin: -1% -6% 3% -6%;
+    }
+  }
+
+  .showForm{
+    margin-bottom: 15px;
   }
 }
