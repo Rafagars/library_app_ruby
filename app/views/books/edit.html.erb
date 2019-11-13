@@ -1,5 +1,17 @@
 <%= form_for(@book, url: user_book_path(), method: :patch ) do |f| %>
   <span>Title: <%= f.text_field :title%></span>
   <span>Author: <%= f.text_field :author %></span>
+  <span> Status: </span>
+  
+  <label class="radio-inline">
+    Owned:
+    <%=f.radio_button :status, "owned", :checked => true %>
+  </label>
+    
+  <label class="radio-inline">
+    Wishlist:
+    <%= f.radio_button :status, "wishlist" %>
+  </label>
+  
   <span><%= f.submit "Edit", class: "btn btn-primary" %></span>
 <% end %>

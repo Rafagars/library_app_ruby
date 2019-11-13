@@ -37,7 +37,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books.paginate(page: params[:page])
+    @books = @user.books.where("status = ?", "owned").paginate(page: params[:page])
+    @wishlist = @user.books.where("status = ?", "wishlist").paginate(page: params[:page])
   end
 
   private

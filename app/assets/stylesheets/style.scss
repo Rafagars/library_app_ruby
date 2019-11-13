@@ -319,6 +319,11 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
+.radio-list{
+  float: left;
+  clear: both;
+  list-style: none;
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 767.98px) {
