@@ -9,7 +9,8 @@
     <li>
       <%= gravatar_for user %>
       <%= link_to user.name, user %>
-      <h5> Books: <%= user.books.count %></h5>
+      <h5> Books: <%= user.books.where("status = ?", "owned").count %> </h5>
+      <h5> Wishlist: <%= user.books.where("status = ?", "wishlist").count %></h5>
     </li>
   <% end %>
 </ul>
