@@ -11,9 +11,9 @@
   </aside>
   <div class="col-md-8">
     <% if logged_in? && @current_user.id == @user.id %>
-      <button id="showForm" class="btn btn-primary center-block"> Add Book </button>
-      <button id="hideForm" class="btn btn-danger">X</button>
-      <div id="bookForm">
+      <button class="btn btn-primary center-block showForm"> Add Book </button>
+      <button class="btn btn-danger hideForm">X</button>
+      <div class="bookForm">
         <%= render 'books/form', provide(:url, user_books_path(@user)) %>
       </div>
     <% end %>
@@ -48,28 +48,3 @@
   <% end %>
   </div>
 </div>
-
-<script>
-  /* Script in here because is the only way I could made it works */
-    var i = 0;
-
-    var bookForm = $("#bookForm");
-
-    var hideForm = $("#hideForm");
-
-    hideForm.hide();
-
-    bookForm.hide();
-
-    $('#showForm').on('click', function () {
-        bookForm.show();
-        hideForm.show();
-        $('#showForm').hide();
-    });
-
-    hideForm.on('click', function () {
-        bookForm.hide();
-        hideForm.hide();
-        $('#showForm').show();
-    })
-</script>
