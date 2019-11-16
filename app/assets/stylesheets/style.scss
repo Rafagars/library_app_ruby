@@ -16,6 +16,7 @@
 body{
   padding-top: 60px;
   background-color: #eeefc7;
+  font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 }
 
 section{
@@ -304,13 +305,26 @@ input, textarea, select, .uneditable-input {
 }
 
 .btn-primary:hover{
-  background-color: #f0e2a8;
+  background-color: #f3e9bf;
   color: #666666;
 }
 
 .nav-link{
-  background-color: #f1e4b0;
+  background-color: #f3e9bf;
   color: #555555;
+}
+
+
+.table tr, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: #f1e4b0;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f3e9bf;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2e6b7;
 }
 
 /* miscellaneous */
@@ -323,11 +337,6 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
-.radio-list{
-  float: left;
-  clear: both;
-  list-style: none;
-}
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 767.98px) {
